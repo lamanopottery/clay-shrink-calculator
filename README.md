@@ -1,2 +1,2 @@
-# shrinkage-calculator
-A simple glaze shrinkage calculator.
+# Clay Shrinkage Calculator
+A simple clay shrinkage calculator.
