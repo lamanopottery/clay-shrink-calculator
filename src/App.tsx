@@ -21,7 +21,7 @@ const containerSx = {
 
 export default function App() {
   const [clayType, setClayType] = useState("white");
-  const [shrinkPercent, setShrinkPercent] = useState("");
+  const [shrinkPercent, setShrinkPercent] = useState("13");
 
   const shrinkage = validShrinkPercent(shrinkPercent)
     ? +shrinkPercent / 100
