@@ -1,10 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box, TextField } from "@mui/material";
 import { East } from "@mui/icons-material";
-
-const isNumber = (str: string) => !isNaN(+str) && !isNaN(parseFloat(str));
-
-const rounded = (num: number) => String(+num.toFixed(2));
+import { isNumber, rounded } from "./utils";
 
 type ShrinkPairProps = {
   shrinkage: number;
@@ -17,8 +14,12 @@ export default function ShrinkPair({ shrinkage, label }: ShrinkPairProps) {
 
   const rate = 1 - shrinkage;
 
+  useEffect(() => {
+    setAfter(isNumber(before) ? rounded(+before * rate) : "");
+  }, [rate]); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
-    <Box sx={{ display: "flex", alignItems: "center", columnGap: 4 }}>
+    <Box sx={{ display: "flex", alignItems: "center", columnGap: 3 }}>
       <TextField
         fullWidth
         InputLabelProps={{ shrink: true }}
