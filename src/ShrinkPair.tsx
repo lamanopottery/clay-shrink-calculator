@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import { East } from "@mui/icons-material";
 import { isNumber, rounded } from "./utils";
 
@@ -19,10 +19,12 @@ export default function ShrinkPair({ shrinkage, label }: ShrinkPairProps) {
   }, [rate]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <Box sx={{ display: "flex", alignItems: "center", columnGap: 3 }}>
+    <>
       <TextField
+        sx={{ gridColumn: "1 / span 1" }}
         fullWidth
-        InputLabelProps={{ shrink: true }}
+        // InputLabelProps={{ shrink: true }}
+        inputProps={{ inputMode: "decimal" }}
         label={`${label} Before`}
         value={before}
         error={isNaN(+before)}
@@ -31,10 +33,12 @@ export default function ShrinkPair({ shrinkage, label }: ShrinkPairProps) {
           setAfter(isNumber(value) ? rounded(+value * rate) : "");
         }}
       />
-      <East />
+      <East sx={{ gridColumn: "2 / span 1" }} />
       <TextField
+        sx={{ gridColumn: "3 / span 1" }}
         fullWidth
-        InputLabelProps={{ shrink: true }}
+        // InputLabelProps={{ shrink: true }}
+        inputProps={{ inputMode: "decimal" }}
         label={`${label} After`}
         value={after}
         error={isNaN(+after)}
@@ -43,6 +47,6 @@ export default function ShrinkPair({ shrinkage, label }: ShrinkPairProps) {
           setBefore(isNumber(value) ? rounded(+value / rate) : "");
         }}
       />
-    </Box>
+    </>
   );
 }
