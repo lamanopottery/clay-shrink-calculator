@@ -21,7 +21,7 @@ const containerSx = {
 
 export default function App() {
   const [clayType, setClayType] = useState("white");
-  const [shrinkPercent, setShrinkPercent] = useState("13");
+  const [shrinkPercent, setShrinkPercent] = useState("11");
 
   const shrinkage = validShrinkPercent(shrinkPercent)
     ? +shrinkPercent / 100
@@ -29,9 +29,9 @@ export default function App() {
 
   useEffect(() => {
     if (clayType === "white") {
-      setShrinkPercent("13");
+      setShrinkPercent("11");
     } else if (clayType === "brown") {
-      setShrinkPercent("15");
+      setShrinkPercent("11");
     }
   }, [clayType]);
 
@@ -53,7 +53,6 @@ export default function App() {
       <TextField
         sx={{ gridColumn: "3 / span 1" }}
         fullWidth
-        // InputLabelProps={{ shrink: true }}
         inputProps={{ inputMode: "decimal" }}
         label="Shrink Percent"
         value={shrinkPercent}

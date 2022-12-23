@@ -23,7 +23,6 @@ export default function ShrinkPair({ shrinkage, label }: ShrinkPairProps) {
       <TextField
         sx={{ gridColumn: "1 / span 1" }}
         fullWidth
-        // InputLabelProps={{ shrink: true }}
         inputProps={{ inputMode: "decimal" }}
         label={`${label} Before`}
         value={before}
@@ -37,7 +36,6 @@ export default function ShrinkPair({ shrinkage, label }: ShrinkPairProps) {
       <TextField
         sx={{ gridColumn: "3 / span 1" }}
         fullWidth
-        // InputLabelProps={{ shrink: true }}
         inputProps={{ inputMode: "decimal" }}
         label={`${label} After`}
         value={after}
